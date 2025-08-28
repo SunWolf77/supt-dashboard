@@ -21,3 +21,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0.0"]
+
+[project.scripts]
+supt-dashboard = "supt_dashboard.dashboard:main"
+supt-dashboard-save = "supt_dashboard.dashboard:save_main"
+
+[tool.setuptools.packages.find]
+where = ["supt_dashboard"]
