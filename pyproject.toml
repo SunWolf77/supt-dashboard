@@ -7,7 +7,7 @@ name = "supt-dashboard"
 version = "0.1.2"
 description = "SUPT ψ-Fold Monitoring Dashboard with NOAA + USGS integration"
 authors = [
-  { name = "SunWolf", email = "contact SunWolf777@pm.me" }
+  { name = "SunWolf" }
 ]
 readme = "README.md"
 license = { text = "MIT" }
@@ -26,5 +26,3 @@ dev = ["pytest>=7.0.0"]
 supt-dashboard = "supt_dashboard.dashboard:main"
 supt-dashboard-save = "supt_dashboard.dashboard:save_main"
 
-[tool.setuptools.packages.find]
-where = ["supt_dashboard"]
