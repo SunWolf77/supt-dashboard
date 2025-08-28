@@ -31,6 +31,7 @@ def usgs_to_delta_phi(usgs_json):
     delta_phi = [0.5 - (m/10) for m in mags]
     return pd.DataFrame({"time": times, "delta_phi": delta_phi})
 
+# Build demo dataframe
 df_noaa = noaa_to_delta_phi(sample_noaa)
 df_usgs = usgs_to_delta_phi(sample_usgs)
 df = pd.concat([df_noaa, df_usgs]).sort_values("time")
@@ -47,3 +48,24 @@ def build_dashboard(dataframe):
 def get_dashboard_html():
     fig = build_dashboard(df)
     return fig.to_html(full_html=True, include_plotlyjs="cdn")
+
+# ---------------- CLI entry points ---------------- #
+
+def main():
+    """Open dashboard in browser"""
+    import webbrowser, tempfile, os
+    html = get_dashboard_html()
+    tmp_path = os.path.join(tempfile.gettempdir(), "supt_dashboard.html")
+    with open(tmp_path, "w") as f:
+        f.write(html)
+    webbrowser.open("file://" + tmp_path)
+    print(f"Dashboard generated and opened: {tmp_path}")
+
+def save_main():
+    """Save dashboard.html in current directory without opening"""
+    html = get_dashboard_html()
+    out_path = "dashboard.html"
+    with open(out_path, "w") as f:
+        f.write(html)
+    print(f"Dashboard saved to {out_path}")
+
