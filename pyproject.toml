@@ -7,7 +7,7 @@ name = "supt-dashboard"
 version = "0.1.2"
 description = "SUPT ψ-Fold Monitoring Dashboard with NOAA + USGS integration"
 authors = [
-  { name = "SunWolf", email = "contact@sunwolf77.org" }
+  { name = "SunWolf", email = "contact SunWolf777@pm.me" }
 ]
 readme = "README.md"
 license = { text = "MIT" }
